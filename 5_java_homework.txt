@@ -1,0 +1,46 @@
+Answer these questions about the jvm - 
+1.What is the difference between the stack and heap memory areas allocated in JVM?
+	As the code runs, the local variables are allocated on the heap and their address
+	is transferred to the stack. When the function completes its operation, the stack
+	is deleted and the garbage collector deletes the values that are now inaccessible
+	from the stack, which are called garbage values. In addition, the global variables
+	and any other variable that does not depend on the function will always be allocated
+	on the stack because the stack is cleared when the function terminates.
+
+2.Can you explain the architecture of JVM?
+
+	The main disease is the Class Loader Subsystem. Its main purposes are: Loading, Linking and Initialization.
+
+	This class is directly linked to the JVM memory and has 5 parts of memory:
+	1. Method area: In the method area, all class level information like class name, immediate parent class name,
+	methods and variable information are stored, including static variables. It is a shared resource.
+	2. The Heap area: Information of all objects is stored in the heap area. It is a shared resource.
+	3. The Stack area: For every thread, JVM creates one run-time stack which is stored here. Each block of this stack
+	is called activation record/stack frame which stores method calls. All local variables of that method are stored in
+	their corresponding frame. After a thread terminates, its run-time stack will be destroyed by JVM.
+	4. PC Registers: Store address of current execution instruction of a thread. Each thread has separate PC Registers.
+	5. Native method stacks: For each thread, a separate native stack is created. It stores native method information.
+
+	The Method area is directly associated with The Execution Engine. The Execution Engine reads the byte-code line
+	by line, uses data and information present in various memory areas and executes instructions. Engine.
+
+ 	The Execution Engine is directly associated with Native Method, which is connected to the libraries and provides 
+	the native libraries (C, C++) required for the execution. It enables JVM to call C/C++ libraries and to be called
+	by C/C++ libraries which may be specific to hardware.
+
+3.Why not just run native? why is the jvm needed?
+	To not depend on a runtime environment for execution.
+
+4.What do you understand about bytecode in Java?
+	Bytecode is a code that lies between low-level language and high-level language. 
+	After the Java code is compiled, the bytecode gets generated, which can be executed on any machine using JVM
+
+5.Can you tell me more about the memory areas available in JVM?
+	I believe what I wrote in Q2 is more than enought haha
+
+6.What is just-in-time compilation?
+	A way to execute computer code that includes compilation during program execution, i.e.
+	at the runtime itself and not before execution.
+
+hand in the answers through here - 
+https://classroom.github.com/a/6L-2GkN1
